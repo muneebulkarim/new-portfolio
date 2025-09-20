@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon-calculator.webp" type="image/x-icon">
+</head>
+
+<body>
+    <div class="main-heading">
+        <h1>Calculator</h1>
+    </div>
+    <div class="main-grid">
+        <div class="output-screen">
+            <input type="text" id="main-output" value="It is Output">
+        </div>
+        <div class="calc-buttons">
+            <div class="calc-buttons-row calc-buttons-1">
+                <div class="calc-btn calc-btn-1 btn-1-2-removeAll" onclick="onBtnPressed('AC')">
+                    AC
+                </div>
+                <div class="calc-btn calc-btn-1  btn-3-removeLetter" onclick="onBtnPressed('DC')">
+                    DC
+                </div>
+                <div class="calc-btn calc-btn-1  btn-4-plus" onclick="onBtnPressed('+')">
+                    +
+                </div>
+            </div> 
+            <div class="calc-buttons-row calc-buttons-2">
+                <div class="calc-btn btn-1-one" onclick="onBtnPressed('1')">
+                    1
+                </div>
+                <div class="calc-btn btn-2-two" onclick="onBtnPressed('2')">
+                    2
+                </div>
+                <div class="calc-btn btn-3-three" onclick="onBtnPressed('3')">
+                    3
+                </div>
+                <div class="calc-btn btn-4-minus" onclick="onBtnPressed('-')">
+                    -
+                </div>
+            </div>
+            <div class="calc-buttons-row calc-buttons-2">
+                <div class="calc-btn btn-5-four" onclick="onBtnPressed('4')">
+                    4
+                </div>
+                <div class="calc-btn btn-6-five" onclick="onBtnPressed('5')">
+                    5
+                </div>
+                <div class="calc-btn btn-7-six" onclick="onBtnPressed('6')">
+                    6
+                </div>
+                <div class="calc-btn btn-8-multiply" onclick="onBtnPressed('x')">
+                    &#215;
+                </div>
+            </div>
+            <div class="calc-buttons-row calc-buttons-3">
+                <div class="calc-btn btn-9-seven" onclick="onBtnPressed('7')">
+                    7
+                </div>
+                <div class="calc-btn btn-10-eight" onclick="onBtnPressed('8')">
+                    8
+                </div>
+                <div class="calc-btn btn-11-nine" onclick="onBtnPressed('9')">
+                    9
+                </div>
+                <div class="calc-btn btn-12-divide" onclick="onBtnPressed('/')">
+                    &#247;
+                </div>
+            </div>
+            <div class="calc-buttons-row calc-buttons-4">
+                <div class="calc-btn btn-13-zero" onclick="onBtnPressed('0')">
+                    0
+                </div>
+                <div class="calc-btn btn-14-point" onclick="onBtnPressed('.')">
+                    .
+                </div>
+                <div class="calc-btn btn-15-power" onclick="onBtnPressed('a')">
+                    Ans
+                </div>
+                <div class="calc-btn btn-16-equal" onclick="onBtnPressed('=')">
+                    &equals;
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

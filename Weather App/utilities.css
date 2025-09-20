@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--font-color);
+}
+
+:root {
+    --primary-color:#141c31 ; /*#142442 */
+    --secondary-color: #2970DB;
+    --background-color: #F4E5CE;
+    --orange-color: #FFBD4A;
+    --font-color : white;
+    --botton-hover-color :#142442;
+}
+
+.font-faimly-montserrat-100 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+}
+.font-faimly-montserrat-300 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.text-align-center {
+    text-align: center;
+}
+.flex{
+    display: flex;
+}
+.align-items-center{
+    align-items: center;
+}
+.flex-gap-8px{
+    gap: 8px;
+}
+.flex-gap-16px{
+    gap: 8px;
+}
+.flex-gap-40px{
+    gap: 40px;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+.justify-content-flex-end{
+    justify-content: flex-end;
+}
+.justify-content-space-around{
+    justify-content: space-around;
+}
+
+.font-size-16px{
+    font-size: 16px;
+}
+.font-size-24px{
+    font-size: 16px;
+}
+.font-size-32px{
+    font-size: 16px;
+}
+
+.display-none{
+    display: none;
+}
+.display-block{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.m-8px{
+    margin: 8px;
+}
+.m-16px{
+    margin: 16px;
+}
+.m-24px{
+    margin: 24px;
+}
+.m-32px{
+    margin: 32px;
+}
+.m-40px{
+    margin: 40px;
+}
+
+
+.mx-8px{
+    margin: 8px 0;
+}
+.mx-16px{
+    margin: 16px 0;
+}
+.mx-24px{
+    margin: 24px 0;
+}
+.mx-32px{
+    margin: 32px 0;
+}
+.mx-40px{
+    margin: 40px 0;
+}
+
+
+.my-8px{
+    margin: 0 8px;
+}
+.my-16px{
+    margin: 0 16px;
+}
+.my-24px{
+    margin: 0 24px;
+}
+.my-32px{
+    margin: 0 32px;
+}
+.my-40px{
+    margin: 0 40px;
+}
+
+
+.p-8px{
+    padding: 8px;
+}
+.p-16px{
+    padding: 16px;
+}
+.p-24px{
+    padding: 24px;
+}
+.p-32px{
+    padding: 32px;
+}
+.p-40px{
+    padding: 40px;
+}
+
+
+.px-8px{
+    padding: 8px 0;
+}
+.px-16px{
+    padding: 16px 0;
+}
+.px-24px{
+    padding: 24px 0;
+}
+.px-32px{
+    padding: 32px 0;
+}
+.px-40px{
+    padding: 40px 0;
+}
+
+
+
+.py-8px{
+    padding: 0 8px;
+}
+.py-16px{
+    padding: 0 16px;
+}
+.py-24px{
+    padding: 0 24px;
+}
+.py-32px{
+    padding: 0 32px;
+}
+.py-40px{
+    padding: 0 40px;
+}

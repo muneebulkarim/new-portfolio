@@ -1,0 +1,46 @@
+
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.ta-c{
+    text-align: center;
+}
+.ta-l{
+    text-align: left;
+}
+.m--5rem{
+        margin: .5rem;
+}
+.m-1rem{
+        margin: 1rem;
+}
+.p-1rem{
+    padding: 1rem;
+}
+.fs--8rem{
+    font-size: .8rem;
+}
+.fs-1-5rem {
+    font-size: 1.5rem;
+}
+.d-n{
+    display: none;
+}
+.d-ib{
+    display: inline-block;
+}
+.t--5s{
+    transition: .5s;
+}
+.m-10{
+    margin: 10px;
+}
+.c-w{
+    color: #142442;
+}
+
+.ff-u{
+    font-family: 'Ubuntu', sans-serif;
+}

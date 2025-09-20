@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@100;300;500&display=swap" rel="stylesheet">
+    <title>Palindrome Checker</title>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="main-nav">
+                <div class="company-logo">
+                    <a href="/index.html">
+                        <strong class="comapny-name">
+                            <h1>Muneeb</h1>
+                        </strong>
+                    </a>
+                </div>
+                <div class="fa-div fa-div-bar fa-menu ">
+                    <i class="fa-solid fa-bars fa-icons"></i>
+                </div>
+                <div class="main-menu">
+                    <div class="fa-div fa-div-cross fa-cross">
+                    </div>
+                    <ul>
+                        <li><a href="/muneeb-simple-portfolio/index.html">Home</a></li>
+                        <li><a href="/muneeb-simple-portfolio/projects.html">Projects</a></li>
+                        <li><a href="/muneeb-simple-portfolio/certifications.html">Learnings</a></li>
+                    </ul>
+                </div>
+                <div class="nav-cta">
+                    <button type="button" class="main-btn nav-cta-btn">Get Access</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="main-other">
+        <h1 id="other-heading">Palindrome Checker</h1>
+        <div>
+            <input type="text" id="other-input" placeholder="Enter Text Here">
+            <button type="submit" onclick="check()" class="main-btn">Check</button><br>
+        </div>
+        <p id="other-results"></p>
+        <hr>
+        <br>
+
+        <div class="other-detail">
+            <p>A palindrome checker is a tool or program that determines whether a given sequence of characters, such as
+                a word, phrase, or number, reads the same backward as forward. In the context of words or phrases,
+                spaces, punctuation, and capitalization are typically ignored during the comparison. The palindrome
+                checker evaluates the symmetry of the input and returns a result indicating whether the given sequence
+                is a palindrome or not. This type of tool is commonly used for tasks like verifying wordplay, solving
+                puzzles, or checking the symmetry of alphanumeric strings. Palindrome checkers are straightforward yet
+                valuable for quickly identifying symmetrical patterns in text or numerical sequences.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="main-footer">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="/muneeb-simple-portfolio/index.html">Home</a></li>
+                    <li><a href="/muneeb-simple-portfolio/projects.html">Projects</a></li>
+                    <li><a href="/muneeb-simple-portfolio/certifications.html">Learnings</a></li>
+                </ul>
+            </div>
+            <div class="footer-cta">
+                <p>Drop a Mail To Start</p>
+                <button type="button" class="main-btn">muneeb123karim@gmail.com</button>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>
+                &copy; Copy Right All Rights Reserved - 2024
+            </p>
+        </div>
+    </footer>
+
+
+    <script defer>
+        const input = document.getElementById('other-input')
+        const results = document.getElementById('other-results')
+        function palindrome(str) {
+            let string = removeSpaces(str)
+            let noSpecialCharacters = string.replace(/[^a-zA-Z0-9 ]/g, '');
+            noSpecialCharacters = noSpecialCharacters.toLowerCase()
+            if (string != noSpecialCharacters) { string = noSpecialCharacters }
+            if (reverseString(noSpecialCharacters) == string) return true; else return false
+        }
+
+
+        function removeSpaces(str) {
+            let removedSpacesText = str.split(" ").join("");
+            return removedSpacesText;
+        }
+
+        function reverseString(str) {
+            // empty string
+            let newString = "";
+            for (let i = str.length - 1; i >= 0; i--) {
+                newString += str[i];
+            }
+            return newString;
+        }
+        function check() {
+            if (input.value.length > 0) {
+                if (palindrome(input.value))
+                    results.innerText = "Palindrome Checker Passed"
+                else
+                    results.innerText = "Palindrome Checker Failed"
+            }
+            else
+                results.innerText = "Please Enter Text"
+        }
+    </script>
+</body>
+
+</html>

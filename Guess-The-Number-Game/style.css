@@ -1,0 +1,105 @@
+html{
+    font-size: 16px;
+    background-color: #F4E5CE;
+    color: #142442;
+    font-weight: 300;
+}
+.fa-arrow-right{
+    transform: rotate(0deg);
+    
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.welcome-heading{
+    font-size: 2rem;
+    margin: 20px;
+}
+
+.game-name{
+    font-size: 1.9rem;
+    margin: 0 20px 20px 20px;
+}
+
+.structure-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 50vh;
+}
+
+.btn{
+    padding: 0.5rem 1rem;
+    background-color: #FFBD4A;
+    font-size: 1.2rem;
+    color: #333;
+    width: 50vw;
+    cursor: pointer;
+    margin: 1rem auto;
+    transition: .4s;
+    &:hover{
+        transform: scale(1.1);
+    }
+
+}
+.interaction-section{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-numbers input {
+    width: 70vw;
+    height: 30px;
+    padding: 1rem;
+    border: 2px solid ;
+    margin: 5px;
+    font-size: 1.1rem;
+}
+
+.engine-display-prompts{
+    background-color: #142442;
+    padding: 1rem;
+    margin: 5px;
+    color: white;
+}
+.btn-2{
+    display: block;
+    margin: 20px auto;
+    width: 30vw;
+}
+.btn-3{
+    display: block;
+    margin: 20px auto;
+    width: 25vw;
+    &:hover{
+    cursor: auto;
+    transform: scale(1);
+    }
+}
+.score-display{
+    position: absolute;
+    z-index: 1;
+    background-color: orange;
+    width: 24vw;
+    height: 8vh;
+    padding: 20px;
+    color: #252525;
+    min-height: 150px;
+    min-width: 200px;
+    display: none;
+    border: 3px solid #142442;
+}
+
+.scores{
+    font-size: 2rem;
+    margin: 2rem;
+}
+.score-text{
+    font: 1.5rem;
+}
