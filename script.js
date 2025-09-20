@@ -204,39 +204,6 @@ function createRippleEffect(button, event) {
     }, 600);
 }
 
-// Notification system
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 2rem;
-        background: ${type === 'success' ? '#ffffff' : '#ff4444'};
-        color: ${type === 'success' ? '#000000' : '#ffffff'};
-        border-radius: 4px;
-        font-weight: 600;
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    `;
-    notification.textContent = message;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
 
 // Parallax scrolling effect
 window.addEventListener('scroll', () => {
@@ -303,5 +270,6 @@ if (!('scrollBehavior' in document.documentElement.style)) {
     smoothScrollPolyfill.src = 'https://cdn.jsdelivr.net/gh/iamdustan/smoothscroll@master/dist/smoothscroll.min.js';
     document.head.appendChild(smoothScrollPolyfill);
 }
+
 
 
