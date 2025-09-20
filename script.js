@@ -139,10 +139,10 @@ function initFormHandling() {
             var templateParams = {
                 name: name,
                 email: email,
-                message: message
+                message: message,
             };
 
-            emailjs.send('service_p2for1r', 'template_85rh5pr', templateParams)
+            emailjs.send('service_p2for1r', 'template_d9pkdn4', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                 }, function(error) {
@@ -303,4 +303,5 @@ if (!('scrollBehavior' in document.documentElement.style)) {
     smoothScrollPolyfill.src = 'https://cdn.jsdelivr.net/gh/iamdustan/smoothscroll@master/dist/smoothscroll.min.js';
     document.head.appendChild(smoothScrollPolyfill);
 }
+
 
