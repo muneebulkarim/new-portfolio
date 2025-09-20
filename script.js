@@ -128,36 +128,26 @@ function initFormHandling() {
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = 'Sending...';
+            submitBtn.textContent = 'Sent! I'll get back to you soon';
             submitBtn.disabled = true;
-            
-            // Send form data to PHP script
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('message', message);
-            
-            fetch('send_email.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                } else {
-                    showNotification('Failed to send message. Please try again.', 'error');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showNotification('Failed to send message. Please try again.', 'error');
-            })
-            .finally(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
+
+                    (function(){
+            emailjs.init("MelJkzloYZExDjVTj");
+        })();
+
+        // Function to send Contact email
+            var templateParams = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            emailjs.send('service_p2for1r', 'template_85rh5pr', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
         });
     }
 }
@@ -313,3 +303,4 @@ if (!('scrollBehavior' in document.documentElement.style)) {
     smoothScrollPolyfill.src = 'https://cdn.jsdelivr.net/gh/iamdustan/smoothscroll@master/dist/smoothscroll.min.js';
     document.head.appendChild(smoothScrollPolyfill);
 }
+
