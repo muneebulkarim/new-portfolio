@@ -128,7 +128,7 @@ function initFormHandling() {
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = `Sent! I'll get back to you soon`;
+            submitBtn.textContent = `Sent, I will get back to you soon`;
             submitBtn.disabled = true;
 
                     (function(){
@@ -270,6 +270,7 @@ if (!('scrollBehavior' in document.documentElement.style)) {
     smoothScrollPolyfill.src = 'https://cdn.jsdelivr.net/gh/iamdustan/smoothscroll@master/dist/smoothscroll.min.js';
     document.head.appendChild(smoothScrollPolyfill);
 }
+
 
 
 
