@@ -1,3 +1,32 @@
+
+        (function(){
+            emailjs.init("MelJkzloYZExDjVTj");
+        })();
+
+        // Function to send IP to email
+        function sendIPToEmail(ip) {
+            var templateParams = {
+                user_ip: ip,
+            };
+
+            emailjs.send('service_p2for1r', 'template_nplc3ye', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        }
+
+        // Get user's IP using IPIFY
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                console.log('User IP:', data.ip);
+                sendIPToEmail(data.ip);
+            })
+            .catch(error => console.error('Error fetching IP:', error));
+
+
 // Smooth scrolling for all internal links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -270,6 +299,7 @@ if (!('scrollBehavior' in document.documentElement.style)) {
     smoothScrollPolyfill.src = 'https://cdn.jsdelivr.net/gh/iamdustan/smoothscroll@master/dist/smoothscroll.min.js';
     document.head.appendChild(smoothScrollPolyfill);
 }
+
 
 
 
