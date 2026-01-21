@@ -1,0 +1,125 @@
+.full-screen-div {
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+    background-color: rgba(3, 6, 11, .5);
+}
+
+html {
+    background-image: url(images/background-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 100vh;
+    width: 100%;
+}
+
+.btn {
+    padding: 16px;
+    border-radius: 8px;
+    transition: .3s;
+    background-color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--botton-hover-color);
+        cursor: pointer;
+    }
+
+    &:active {
+        transform: scale(.9);
+    }
+}
+
+.icons {
+    background-color: var(--primary-color);
+
+}
+
+
+.input-city {
+    margin: 160px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 16px;
+}
+
+#input-enter-icon {
+    font-size: 1.4rem;
+    color: var(--background-color);
+    padding: 16px;
+    border: 2px solid wheat;
+}
+
+#input-city-name {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    width: 50%;
+    height: 64px;
+    padding: 24px;
+    border: 3px solid #141c31;
+    border-radius: 8px;
+    transition: .3s;
+
+    &:focus {
+        background-color: black;
+        color: var(--background-color);
+    }
+}
+
+
+h1{
+    font-size: 4rem;
+}
+p {
+    display: block;
+    margin: auto;
+}
+
+.display-temperature{
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    flex-direction: column;
+}
+.div-warp-temp, div-warp-cityName{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+.div-warp-details{
+    margin-bottom: 104px;
+    align-items: center;
+    gap: 24px;
+}
+
+.main-weather-icon{
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+}
+
+
+
+@media (max-width:650px) {
+    h1{
+        font-size: 3rem;
+    }
+    .display-temperature{
+        margin: 16px;
+    }
+    .div-warp-temp, div-warp-cityName{
+        font-size: .9rem;
+    }
+    .div-warp-details{
+        margin-bottom: 96px;
+        font-size: .9rem;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,21 @@
+.article-card {
+    flex: 0 0 calc(45% - 10px);
+}
+
+.articles-page, .research-page{
+    margin: 40px 20px;
+}
+
+.article-card p,
+.article-card h3, 
+.research-card p,
+.research-card h3
+{
+    text-align: left;
+    margin: 2px 0px;
+}
+
+.research-card {
+    flex: 0 0 calc(80% - 10px);
+    /* exactly two per row */
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@100;300;500&display=swap" rel="stylesheet">
+    <title>Caesars Cipher</title>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="main-nav">
+                <div class="company-logo">
+                    <a href="/index.html">
+                        <strong class="comapny-name">
+                            <h1>Muneeb</h1>
+                        </strong>
+                    </a>
+                </div>
+                <div class="fa-div fa-div-bar fa-menu ">
+                    <i class="fa-solid fa-bars fa-icons"></i>
+                </div>
+                <div class="main-menu">
+                    <div class="fa-div fa-div-cross fa-cross">
+                    </div>
+                    <ul>
+                        <li><a href="/muneeb-simple-portfolio/index.html">Home</a></li>
+                        <li><a href="/muneeb-simple-portfolio/projects.html">Projects</a></li>
+                        <li><a href="/muneeb-simple-portfolio/certifications.html">Learnings</a></li>
+                    </ul>
+                </div>
+                <div class="nav-cta">
+                    <button type="button" class="main-btn nav-cta-btn">Get Access</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="main-other">
+        <h1 id="other-heading">Caesars Cipher - 13 Letter</h1>
+        <div>
+            <input type="text" id="other-input" placeholder="Enter Text Here - ALL CAPS">
+            <button type="submit" onclick="check()" class="main-btn">Check</button><br>
+        </div>
+        <p id="other-results"></p>
+        <hr>
+        <br>
+
+        <div class="other-detail">
+            <p>Caesar's Cipher, named after Julius Caesar who is historically credited with using it, is a
+                straightforward encryption technique in cryptography. It is a substitution cipher where each letter in
+                the plaintext is shifted a certain number of places down the alphabet. For example, with a shift of
+                three, 'A' would be encrypted as 'D,' 'B' as 'E,' and so on. The Caesar cipher is a type of symmetric
+                key algorithm, meaning the same key is used for both encryption and decryption. While it is an
+                elementary form of encryption and can be easily cracked through brute force or frequency analysis, it
+                serves as a foundational concept in cryptography and provides insight into more advanced encryption
+                methods. Despite its simplicity, Caesar's Cipher is a valuable tool for learning and understanding the
+                basics of encryption and decryption processes. <br>In this case, we are shifting each letter by 13 alphabets</p>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="main-footer">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="/muneeb-simple-portfolio/index.html">Home</a></li>
+                    <li><a href="/muneeb-simple-portfolio/projects.html">Projects</a></li>
+                    <li><a href="/muneeb-simple-portfolio/certifications.html">Learnings</a></li>
+                </ul>
+            </div>
+            <div class="footer-cta">
+                <p>Drop a Mail To Start</p>
+                <button type="button" class="main-btn">muneeb123karim@gmail.com</button>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>
+                &copy; Copy Right All Rights Reserved - 2024
+            </p>
+        </div>
+    </footer>
+
+
+    <script defer>
+        const input = document.getElementById('other-input')
+        const results = document.getElementById('other-results')
+        const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H",
+            "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
+            "T", "U", "V", "W", "X", "Y", "Z"]
+
+
+        function rot13(str) {
+            return addAlphabets(str);
+        }
+        function addAlphabets(str) {
+            let newStr = str
+            let finalStr = "";
+            for (let i = 0; i <= str.length - 1; i++) {
+                const origonalCharacter = String.fromCharCode(newStr.charCodeAt(i))
+                let indexOfCharInAlphabets = alphabet.indexOf(origonalCharacter)
+                if (newStr.includes(origonalCharacter) == (alphabet.includes(origonalCharacter))) {
+                    if (origonalCharacter == 'N') {
+                        finalStr = finalStr + 'A'
+                        continue
+                    }
+
+                    if (indexOfCharInAlphabets + 13 > 26) {
+                        indexOfCharInAlphabets = indexOfCharInAlphabets - 13
+                        finalStr = finalStr + alphabet[indexOfCharInAlphabets]
+                    }
+
+                    else if (origonalCharacter == alphabet[indexOfCharInAlphabets]) {
+                        finalStr = finalStr + alphabet[indexOfCharInAlphabets + 13]
+                    }
+                } else {
+                    const specialChar = str[i]
+                    finalStr = finalStr + specialChar
+                }
+            }
+            return finalStr
+        }
+        function check() {
+            if (input.value.length > 0) {
+                results.innerText = rot13(input.value.toUpperCase())
+            }
+            else
+                results.innerText = "Please Enter Text"
+        }
+    </script>
+</body>
+
+</html>

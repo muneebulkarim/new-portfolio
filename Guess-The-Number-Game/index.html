@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utilities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon-fotball.png" type="image/x-icon">
+    
+</head>
+
+<body>
+    <div class="structure-main ta-c m-1rem p-1rem">
+        <div class="details">
+            <div class="main-header m-1rem">
+                <h1 class="game-name ff-u">Guess The Number</h1>
+            </div>
+            <hr>
+            <div class="main-details m-1rem">
+                <h3 class="fs-1-5rem ff-u">Details</h3>
+                <div class="details-explanation ta-l m-1rem">
+                    <i class="fa-solid fa-arrow-right arrow-1 t--5s" onclick="onArrowClicked('1')"></i>
+                    <h4 class="d-ib ff-u">Explanation</h4>
+                    <div class="details-text-1 c-w t--5s d-n">
+                        <ul class="ta-l ff-u fs--8rem ">
+                            <li>When You will Start The Game, Our Backend Will generate a random number between 1 and
+                                100,
+                                and
+                                You Have To guess it.</li>
+                            <li>When You will make the first try our Backend Will Tell You whether The Number is greator
+                                or
+                                smaller than a generated number.</li>
+                            <li>You Will Keep Guessing and at last You will Enter The Correct Number.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-example ta-l m-1rem">
+                    <i class="fa-solid fa-arrow-right arrow-2 t--5s" onclick="onArrowClicked('2')"></i>
+                    <h4 class="d-ib ff-u">Example</h4>
+                    <div class="details-text-2 t--5s d-n c-w">
+                        <ul class="ta-l ff-u fs--8rem">
+                            <li>Suppose Our Engine has generated 47.</li>
+                            <li>When The Game Starts You Will Enter Your First Guess. Suppos you entered 50.</li>
+                            <li>Now Our Engine Will Tell That You have entered a greater number.</li>
+                            <li>Now suppose you will enter 40.</li>
+                            <li>Our Engine will tell you that you have entered a smaller number now.</li>
+                            <li>Now You will enter 45, suppose.</li>
+                            <li>Our Engine Will again tell you that you have entered smaller number.</li>
+                            <li>Now You will enter a bigger number than 45 and may be at this try you will enter 47.
+                            </li>
+                            <li>After You will guess the right number your score will be printed.</li>
+                            <li>Your Score will depend on the number of tries you have taken to guess the number.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="structure-2">
+            <div class="start-game-btn"  onclick="startTheGameBtn()">
+                <div class="btn ff-u">Start The Game</div>
+            </div>
+            <div class="interaction-section d-n">
+                <div class="input-numbers">
+                    <input type="number" class="user-input-numbers" id="user-input-numbers" max="100" min="0" placeholder="Enter Your Guess">
+                </div>
+                <div class="enter-btn">
+                    <div class="btn btn-2 ff-u" onclick="onEnterButtonPressed()">Enter</div>
+                </div>
+                <div class="tries-display">
+                    <div class="btn ff-u btn-3" id="tries-display">Tries Taken : 0</div>
+                </div>
+                <div class="engine-display">
+                    <p class="ff-u engine-display-prompts" id="engine-display-prompts" >Engine Started! Start Guessing The Number 🖥️ (1-100)</p>
+                </div>
+            </div>
+            <div class="score-display" id="score-display">
+                <h5 class="scores ff-u">Your Scores Are</h5>
+                <div class="main-scores">
+                    <p class="score-text ff-u" id="score-text">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

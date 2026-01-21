@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@100;300;500&display=swap" rel="stylesheet">
+    <title>Roman Numeral Converter</title>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="main-nav">
+                <div class="company-logo">
+                    <a href="/index.html">
+                        <strong class="comapny-name">
+                            <h1>Muneeb</h1>
+                        </strong>
+                    </a>
+                </div>
+                <div class="fa-div fa-div-bar fa-menu ">
+                    <i class="fa-solid fa-bars fa-icons"></i>
+                </div>
+                <div class="main-menu">
+                    <div class="fa-div fa-div-cross fa-cross">
+                    </div>
+                    <ul>
+                        <li><a href="/muneeb-simple-portfolio/index.html">Home</a></li>
+                        <li><a href="/muneeb-simple-portfolio/projects.html">Projects</a></li>
+                        <li><a href="/muneeb-simple-portfolio/certifications.html">Learnings</a></li>
+                    </ul>
+                </div>
+                <div class="nav-cta">
+                    <button type="button" class="main-btn nav-cta-btn">Get Access</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="main-other">
+        <h1 id="other-heading">Roman Numeral Converter</h1>
+        <div>
+            <input type="text" id="other-input" placeholder="Enter Number Here">
+            <button type="submit" onclick="check()" class="main-btn">Check</button><br>
+        </div>
+        <p id="other-results"></p>
+        <hr>
+        <br>
+
+        <div class="other-detail">
+            <p>A Roman numeral converter is a tool or program designed to convert numbers between the Arabic numeral
+                system (commonly used in everyday mathematics) and the Roman numeral system. Roman numerals use a
+                combination of letters from the Latin alphabet, such as I, V, X, L, C, D, and M, to represent numeric
+                values. The converter simplifies the process of translating numbers from one system to the other, making
+                it convenient for users to work with Roman numerals or Arabic numerals depending on their needs. This
+                tool is particularly useful for tasks like deciphering historical dates, numbering chapters or sections,
+                and understanding Roman numeral representations in various contexts.</p>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="main-footer">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="/muneeb-simple-portfolio/index.html">Home</a></li>
+                    <li><a href="/muneeb-simple-portfolio/projects.html">Projects</a></li>
+                    <li><a href="/muneeb-simple-portfolio/certifications.html">Learnings</a></li>
+                </ul>
+            </div>
+            <div class="footer-cta">
+                <p>Drop a Mail To Start</p>
+                <button type="button" class="main-btn">muneeb123karim@gmail.com</button>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>
+                &copy; Copy Right All Rights Reserved - 2024
+            </p>
+        </div>
+    </footer>
+
+
+    <script defer>
+        const input = document.getElementById('other-input')
+        const results = document.getElementById('other-results')
+
+        function convertToRoman(num) {
+            if (typeof num !== 'number') {
+                results.innerText = "Please Enter Numbers"
+                return false;
+            }
+
+            var digits = String(+num).split(""),
+                key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
+                    "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
+                    "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+                roman_num = "",
+                i = 3;
+            while (i--)
+                roman_num = (key[+digits.pop() + (i * 10)] || "") + roman_num;
+            return Array(+digits.join("") + 1).join("M") + roman_num;
+        }
+        function check() {
+            let value = convertToRoman(Number(input.value))
+            if (value != false)
+                results.innerText = value
+        }
+    </script>
+</body>
+
+</html>

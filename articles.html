@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles - Muneeb's Portfolio</title>
+    <!-- Reuse the same CSS, or link to a shared stylesheet -->
+    <link rel="icon" type="image/png" href="/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="general.css"> <!-- Extract CSS to styles.css if sharing -->
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>PORTFOLIO</h2>
+                <a href="/index.html"><h3 class="nav-name">MUNEEB UL KARIM</h3></a>
+            </div>
+            <div class="nav-menu">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-articles-btn">Articles</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="articles-page">
+        <h2 class="section-title">Articles</h2>
+        <div class="article-grid" id="all-articles-grid"></div> <!-- JS will populate this -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 - Contact at muneeb123karim@gmail.com for any criticism or feedback</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function getWebsiteName(url) {
+            try {
+                const hostname = new URL(url).hostname.replace(/^www\./, '');
+                const parts = hostname.split('.');
+
+                if (parts.length >= 2) {
+                    return parts[parts.length - 2];
+                }
+
+                return parts[0];
+            } catch {
+                return null;
+            }
+        }
+        function csvToJson(csv) {
+            const lines = csv.trim().split('\n');
+            const headers = lines[0].split(',').map(h => h.trim());
+
+            return lines.slice(1).map(line => {
+                const values = line.split(',').map(v => v.trim());
+                const obj = {};
+                headers.forEach((h, i) => obj[h] = values[i] || "");
+                return obj;
+            });
+        }
+
+
+        async function loadArticlesForPreview() {
+            try {
+                const response = await fetch(
+                    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQHDOQ6ZpNqGHqt0xVEMF3OABfSSfOHlim9CE23kIQwl9c3S6vgDNjv6pV7yy2xfnF9ureX8NrMyNq4/pub?gid=0&single=true&output=csv'
+                );
+
+                const csv = await response.text();
+                const articles = csvToJson(csv);
+
+                // Sort by date descending
+                articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                const recentArticles = articles;
+
+                const grid = document.getElementById('all-articles-grid');
+                grid.innerHTML = '';
+
+                recentArticles.forEach(article => {
+                    const card = document.createElement('div');
+                    card.className = 'article-card';
+
+                    let buttonText = 'Read More';
+                    if (getWebsiteName(article.link) === 'sourcecode') {
+                        buttonText = 'Read More (Login to Read)';
+                    }
+
+                    card.innerHTML = `
+                <h3>${article.title}</h3>
+                <p class="date">Published: ${article.date}</p>
+                <p>${article.excerpt}</p>
+                <a href="${article.link}" target="_blank">
+                    <button>${buttonText}</button>
+                </a>
+            `;
+
+                    grid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error loading articles:', error);
+            }
+        }
+
+        // Load on page ready
+        document.addEventListener('DOMContentLoaded', loadArticlesForPreview);
+    </script>
+</body>
+
+</html>

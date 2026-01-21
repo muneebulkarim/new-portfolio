@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="shortcut icon" href="images/favicon - weather.png" type="image/x-icon">
+    <link rel="stylesheet" href="utilities.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+
+<body>
+    <div class="full-screen-div">
+        <div class="icons flex align-items-center justify-content-flex-end">
+            <div class="p-8px icons-div-2 flex flex align-items-center  flex-gap-40px">
+                <div class="search-icon btn flex justify-content-center align-items-center flex-gap-8px"
+                    onclick="searchBtn()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p><strong class="font-faimly-montserrat-100">Search</strong></p>
+                </div>
+                <div class="refresh-icon btn flex justify-content-center align-items-center flex-gap-8px"
+                    onclick="location.reload()">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <p><strong class="font-faimly-montserrat-100">Refresh</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="input-city">
+            <i class="fa-solid fa-magnifying-glass btn" id="input-enter-icon" onclick="searchButtonPressed()"></i>
+            <input type="text" name="cityName" placeholder="Enter City Name" id="input-city-name"
+                class="font-faimly-montserrat-300">
+        </div>
+        <div class="display-after-search display-none">
+            <div class="display-temperature">
+                <div class="div-warp-temp">
+                    <div class="main-weather-heading">
+                        <h1 class="font-faimly-montserrat-300" id="main-weather">30°C</h1>
+                    </div>
+                    <div class="main-weather-icon">
+                        <img src="" alt="weather-icon" id="main-weather-icon">
+                    </div>
+                </div>
+                <div class="div-warp-cityName">
+                    <div class="city-name">
+                        <h1 id="city-name" class="font-faimly-montserrat-300">Islamabad</h1>
+                    </div>
+                    <div class="updated-time flex">
+                        <p><strong class="font-faimly-montserrat-100">Last Updated :</strong></p>
+                        <p id="last-update-time" class="font-faimly-montserrat-300">1 min ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div-warp-details flex justify-content-space-around">
+                <div class="humidity-display">
+                    <h3 class="font-faimly-montserrat-300" id="main-humidity">Humidity : </h3>
+                </div>
+                <div class="div-warp-weatherCondition flex justify-content-center align-items-center flex-gap-16px">
+                    <div class="day-details">
+                        <h2 class="font-faimly-montserrat-300" id="weather-condtion">Sunny</h2>
+                    </div>
+                    <div class="main-weather-icon">
+                        <img src="" alt="weather-icon" id="main-weather-icon-2">
+                    </div>
+                </div>
+                <div class="wind-display">
+                    <h3 class="font-faimly-montserrat-300" id="main-wind">Wind : </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

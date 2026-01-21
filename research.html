@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Research Projects - Muneeb's Portfolio</title>
+    <!-- Reuse the same CSS, or link to a shared stylesheet -->
+    <link rel="icon" type="image/png" href="/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="general.css"> <!-- Extract CSS to styles.css if sharing -->
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>PORTFOLIO</h2>
+                <a href="/index.html">
+                    <h3 class="nav-name">MUNEEB UL KARIM</h3>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-articles-btn">Researches</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="research-page">
+        <h2 class="section-title">RESEARCH PROJECTS</h2>
+        <div class="research-grid" id="research-preview-grid"></div> <!-- JS will populate this -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 - Contact at muneeb123karim@gmail.com for any criticism or feedback</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        function csvToJson(csv) {
+            const lines = csv.trim().split('\n');
+            const headers = lines[0].split(',').map(h => h.trim());
+
+            return lines.slice(1).map(line => {
+                const values = line.split(',').map(v => v.trim());
+                const obj = {};
+                headers.forEach((h, i) => obj[h] = values[i] || "");
+                return obj;
+            });
+        }
+
+
+        // FOR RESEARCH PROJECTS
+        async function loadResearchForPreview() {
+            try {
+                const response = await fetch(
+                    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQHDOQ6ZpNqGHqt0xVEMF3OABfSSfOHlim9CE23kIQwl9c3S6vgDNjv6pV7yy2xfnF9ureX8NrMyNq4/pub?gid=338810743&single=true&output=csv'
+                );
+
+                const csv = await response.text();
+                const research = csvToJson(csv);
+
+                // Sort by date descending (newest first)
+                research.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                const recentResearch = research;
+
+                const grid = document.getElementById('research-preview-grid');
+                grid.innerHTML = '';
+
+                recentResearch.forEach(item => {
+                    const researchCard = document.createElement('div');
+                    researchCard.className = 'research-card';
+
+                    if (item.link === 'Classified') {
+                        researchCard.innerHTML = `
+                    <h3>${item.title}</h3>
+                <p class="research-date">Published: ${item.date}</p>
+                    <p>${item.excerpt}</p>
+                    <a><button>Classified</button></a>
+                `;
+                    } else {
+                        researchCard.innerHTML = `
+                    <h3>${item.title}</h3>
+                <p class="research-date">Published: ${item.date}</p>
+                    <p>${item.excerpt}</p>
+                    <a href="${item.link}" target="_blank">
+                        <button>Read More</button>
+                    </a>
+                `;
+                    }
+
+                    grid.appendChild(researchCard);
+                });
+
+            } catch (error) {
+                console.error('Error loading research projects:', error);
+            }
+        }
+
+        // Load on page ready
+        document.addEventListener('DOMContentLoaded', loadResearchForPreview);
+
+    </script>
+</body>
+
+</html>
